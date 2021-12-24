@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filterable Responsive Lightbox Gallery</title>
+
+    <!-- CSS File Dewe -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Magnific Pop-up CSS Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+
+</head>
+<body>
+
+    <div class="galeri">
+
+        <ul class="controls">
+            <li class="buttons active" data-filter="all">All</li>
+            <li class="buttons" data-filter="ice-cream">Ice-Cream</li>
+            <li class="buttons" data-filter="pizza">Pizza</li>
+            <li class="buttons" data-filter="cake">Cake</li>
+            <li class="buttons" data-filter="food">Food</li> 
+        </ul>
+
+        <div class="image-container">
+
+            <!-- Ice Cream -->
+            <a href="img/icecream1-min.jpg" class="image ice-cream">
+                <img src="img/icecream1-min.jpg" alt="">
+            </a>  
+            <a href="img/icecream2-min.jpg" class="image ice-cream">
+                <img src="img/icecream2-min.jpg" alt="">
+            </a>  
+
+            <!-- Pizza -->
+            <a href="img/pizza1-min.jpg" class="image pizza">
+                <img src="img/pizza1-min.jpg" alt="">
+            </a>
+            <a href="img/pizza2-min.jpg" class="image pizza">
+                <img src="img/pizza2-min.jpg" alt="">
+            </a>
+            <a href="img/pizza3-min.jpg" class="image pizza">
+                <img src="img/pizza3-min.jpg" alt="">
+            </a>
+
+            <!-- Cake -->
+            <a href="img/cake1-min.jpg" class="image cake">
+                <img src="img/cake1-min.jpg" alt="">
+            </a>
+            <a href="img/cake2-min.jpg" class="image cake">
+                <img src="img/cake2-min.jpg" alt="">
+            </a>
+            <a href="img/cake3-min.jpg" class="image cake">
+                <img src="img/cake3-min.jpg" alt="">
+            </a>
+            <a href="img/cake4-min.jpg" class="image cake">
+                <img src="img/cake4-min.jpg" alt="">
+            </a>
+            <a href="img/cake5-min.jpg" class="image cake">
+                <img src="img/cake5-min.jpg" alt="">
+            </a>
+
+            <!-- Food -->
+            <a href="img/food1-min.jpg" class="image food">
+                <img src="img/food1-min.jpg" alt="">
+            </a>
+            <a href="img/food2-min.jpg" class="image food">
+                <img src="img/food2-min.jpg" alt="">
+            </a>
+            <a href="img/food3-min.jpg" class="image food">
+                <img src="img/food3-min.jpg" alt="">
+            </a>
+            <a href="img/food4-min.jpg" class="image food">
+                <img src="img/food4-min.jpg" alt="">
+            </a>
+            <a href="img/food5-min.jpg" class="image food">
+                <img src="img/food5-min.jpg" alt="">
+            </a>
+            <a href="img/food6-min.jpg" class="image food">
+                <img src="img/food6-min.jpg" alt="">
+            </a>
+
+        </div>
+
+    </div>
+    
+
+    <!-- JQuery CDN link -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- Magnific JS CDN Link -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+
+    <script>
+        
+        $(document).ready(function(){
+            $('.buttons').click(function(){
+                // tambah class active saat klik 
+                $(this).addClass('active').siblings().removeClass('active');
+                // show/hide data sesuai filter
+                var filter = $(this).attr('data-filter')
+                if(filter=='all'){
+                    $('.image').show(400);
+                }else{
+                    $('.image').not('.'+filter).hide(200);
+                    $('.image').filter('.'+filter).show(400);
+                }
+            });
+
+            $('.galeri').magnificPopup({
+                delegate:'a',
+                type:'image',
+                gallery:{
+                    enable:true
+                }
+            });
+
+        });
+
+    </script>
+
+</body>
+</html>
